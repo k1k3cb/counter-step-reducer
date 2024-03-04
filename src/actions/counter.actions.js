@@ -1,11 +1,11 @@
 import { COUNTER_TYPES } from '../reducers/counter.types';
 
 const incrementCounter = (counter,steps) => ({
-	type: COUNTER_TYPES.INCREMENT_COUNTER,payload:counter+steps
+	type: COUNTER_TYPES.INCREMENT_COUNTER,payload:{counter,steps}
 });
 
 const decrementCounter = (counter,steps) => ({
-	type: COUNTER_TYPES.DECREMENT_COUNTER,payload:counter-steps
+	type: COUNTER_TYPES.DECREMENT_COUNTER,payload:{counter,steps}
 });
 
 const resetCounter = (counter) => ({

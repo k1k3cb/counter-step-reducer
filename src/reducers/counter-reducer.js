@@ -3,11 +3,11 @@ import { COUNTER_TYPES } from './counter.types';
 export const counterReducer = (counter, { type, payload }) => {
 	switch (type) {
 		case COUNTER_TYPES.INCREMENT_COUNTER: {
-			return { ...counter, value: payload  }; 
+			return { ...counter, value: payload.counter+payload.steps  }; 
 			
 		}
 		case COUNTER_TYPES.DECREMENT_COUNTER: {
-			return { ...counter, value: payload  };
+			return { ...counter, value:  payload.counter-payload.steps  };
 		}
 		case COUNTER_TYPES.RESET_COUNTER: {
 			return { ...counter, value: 0 };
