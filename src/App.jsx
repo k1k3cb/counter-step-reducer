@@ -3,7 +3,9 @@ import {
 	decrementCounter,
 	decrementSteps,
 	incrementCounter,
-	incrementSteps
+	incrementSteps,
+	resetCounter,
+	resetSteps
 } from './actions/counter.actions';
 import { counterReducer } from './reducers/counter-reducer';
 import { GlobalStyles } from './styles/GlobalStyles';
@@ -22,13 +24,13 @@ const App = () => {
 
 			<h1>STEPS: {counter.steps}</h1>
 
-			<button onClick={() => dispatch(incrementCounter(counter.value))}>
+			<button onClick={() => dispatch(incrementCounter(counter.value, counter.steps))}>
 				+
 			</button>
-			<button onClick={() => dispatch(decrementCounter(counter.value))}>
+			<button onClick={() => dispatch(decrementCounter(counter.value, counter.steps))}>
 				-
 			</button>
-			<button>Reset</button>
+			<button onClick={() => dispatch(resetCounter(counter.value))}>Reset</button>
 			
 			<button onClick={() => dispatch(incrementSteps(counter.steps))}>
 				Steps +
@@ -37,7 +39,7 @@ const App = () => {
 				Steps -
 			</button>
 
-			<button>Rest Steps</button>
+			<button onClick={() => dispatch(resetSteps(counter.steps))}>Rest Steps</button>
 		</>
 	);
 };
